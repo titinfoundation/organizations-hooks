@@ -127,7 +127,7 @@ use Directus\Application\Application;
               'address' => 'info@sinfinespr.org',
               ),
           ),
-      'subject' => $ec->subject,
+      'subject' => $ec["subject"],
       'body' =>
       array (
         'parts' =>
@@ -135,7 +135,7 @@ use Directus\Application\Application;
               0 =>
               array (
                 'type' => 'text/html',
-                'content' => $ec->message,
+                'content' => $ec["message"],
                 ),
             ),
         ),
