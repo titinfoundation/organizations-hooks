@@ -22,7 +22,7 @@ return [
       }else 
         return;
 
-      if($item->data->status === 'published'){
+      if($item->status === 'published'){
         $body = publishedEmail($item);
 
       } else if($item->status === 'not_published'){
