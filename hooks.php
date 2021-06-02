@@ -18,8 +18,9 @@ use Directus\Application\Application;
         $message = "";
 
         if($item["status"] == 'published'){
-          $subject = "published";
-          $message = "publihed";
+          $subject = "test";
+        $message = "test";
+          $emailContent = createdEmail($item["name"]);
         } else if($item["status"] == 'not_published'){
           $subject = "not_published";
           $message = "not_published";
@@ -42,6 +43,66 @@ use Directus\Application\Application;
       }
     ]
   ];
+
+  class EmailContent {
+    public $subject;
+    public $message;
+  }
+
+  function updatedEmail () {
+    $ec = new EmailContent();
+    $ec->subject = ""; 
+    $ec->message = "";
+
+    return $ec;
+  }
+
+  function createdEmail (string $name) {
+    $ec = new EmailContent();
+    $ec->subject = "¡Recibimos tu solicitud!"; 
+    $ec->message = '<html><body>';
+    $ec->message .= "<p >¡Saludos  ${name}!</p>";
+    $ec->message .= "<br >";
+    $ec->message .= "<p >¡Tu perfil ha sido completado! En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
+    $ec->message .= "<br >";
+    $ec->message .= "<p >¡Muchas gracias por su confianza e interés en SINFINESPR!</p>";
+    $ec->message .= "</body></html>";
+
+    return $ec;
+  }
+
+  function publishedUpdatedEmail () {
+    $ec = new EmailContent();
+    $ec->subject = "¡Recibimos tu solicitud!"; 
+
+    $ec->message = '<html><body>';
+
+    $ec->message .= "<p >¡Saludos  ${name}!</p>";
+    $ec->message .= "<br >";
+    $ec->message .= "<p ></p>";
+    $ec->message .= "<br >";
+    $ec->message .= "<p ></p>";
+   
+    $ec->message .= "</body></html>";
+
+    return $ec;
+  }
+
+  function publishedEmail () {
+    $ec = new EmailContent();
+    $ec->subject = ""; 
+    $ec->message = "";
+
+    return $ec;
+  }
+
+  function deniedEmail () {
+    $ec = new EmailContent();
+    $ec->subject = ""; 
+    $ec->message = "";
+
+    return $ec;
+  }
 
 
   function smtpRequestBodyBuilder(string $email, string $subject, string $message){
