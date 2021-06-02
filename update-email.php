@@ -36,8 +36,10 @@
             ),
         ),
     );
-    
-    return $body;
+
+    $jsonstring = json_encode($body);
+
+    echo $jsonstring;
   }
 ?>
 
