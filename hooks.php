@@ -12,6 +12,9 @@
         $params = ['fields'=>'*.*'];
         $item = $itemsService->find('organizations', $data->id, $params);
 
+        $item = $item->data;
+        
+
         
         $body = array (
           'channel' => 'info_sinfinespr_org',
@@ -42,7 +45,7 @@
                   0 =>
                   array (
                     'type' => 'text/html',
-                    'content' => "Saludos sub sup esto es una prueba. ",
+                    'content' => "Saludos sub sup {$item->name} esto es una prueba. ",
                     ),
                 ),
             ),
