@@ -1,7 +1,6 @@
 <?php
 
 include './update-email.php';
-
 use Directus\Application\Application;
 
 
@@ -13,7 +12,7 @@ return [
       $container = Application::getInstance()->getContainer();
       $itemsService = new \Directus\Services\ItemsService($container);
       $params = ['fields'=>'*.*'];
-      $item = $itemsService->find('organizations', $data->id, $params);
+      $item = $itemsService->find('organizations', 60, $params);
 
       //Validation not to send email to client 
       // if(!is_null($item)){
