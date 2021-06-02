@@ -15,8 +15,8 @@ use Directus\Application\Application;
 
 
         //Email construction
-        $subject = "";
-        $message = "";
+        $subject = "not_published";
+        $message = "not_published";
 
         if($item->status == 'published'){
           $subject = "published";
