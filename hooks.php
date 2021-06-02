@@ -1,7 +1,7 @@
 <?php
-
-  use Directus\Application\Application;
   include "./update-email.php"
+  use Directus\Application\Application;
+  
 
   return [
     'actions' => [
