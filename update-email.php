@@ -1,6 +1,6 @@
 <?php
 
-  function updateEmail() {
+  function updateEmail(array $data) {
     $body = array (
       'channel' => 'info_sinfinespr_org',
       'recipients' =>
