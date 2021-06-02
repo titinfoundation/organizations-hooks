@@ -1,6 +1,8 @@
 <?php
 
 include './update-email.php';
+include './published-email.php';
+include './denied-email.php';
 use Directus\Application\Application;
 
 
@@ -12,11 +14,23 @@ return [
       $container = Application::getInstance()->getContainer();
       $itemsService = new \Directus\Services\ItemsService($container);
       $params = ['fields'=>'*.*'];
-      $item = $itemsService->find('organizations', 60, $params);
+      $item = $itemsService->find('organizations', $data->id, $params);
 
-      //Email body
-      $body = updateEmail($item->data);
+      //Validation not to send email to client 
+      if(is_null($item))
+        return;
 
+      if($item->status === 'published'){
+        $body = publishedEmail($item->data);
+
+      } else if($item->status === 'not_published'){
+        $body = updateEmail($item->data);
+
+      } else if($item->status === 'denied'){
+        $body = deniedEmail($item->data);
+
+      } else 
+        return;
 
       //Request to smtp.com api
       $client = new \GuzzleHttp\Client([
