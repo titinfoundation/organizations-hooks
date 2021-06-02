@@ -14,7 +14,7 @@ return [
       $item = $itemsService->find('organizations', 60, $params);
 
       //$body = null;
-      //$body = updateEmail($item['data']);
+      $body = updateEmail($item['data']);
 
       $body = array (
         'channel' => 'info_sinfinespr_org',
