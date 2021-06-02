@@ -47,7 +47,7 @@ include("./update-email.php");
                   0 =>
                   array (
                     'type' => 'text/html',
-                    'content' => "Saludos sub sup {$item->name} esto es una prueba. ",
+                    'content' => "Saludos sub sup {$name} esto es una prueba. ",
                     ),
                 ),
             ),
