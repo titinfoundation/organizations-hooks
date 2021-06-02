@@ -4,22 +4,6 @@ use Directus\Application\Application;
 
   return [
     'actions' => [
-      'item.create.organizations' => function (array $data) {
-
-        //Email construction
-        $subject = "";
-        $message = "";
-
-        //Request to smtp.com api
-        $client = new \GuzzleHttp\Client([
-          'base_uri' => 'https://api.smtp.com'
-        ]);
-        $response = $client->request('POST', 'v4/messages?api_key=fe1788dd32593bbc21fa941018856731f3b00f30', [
-          'json' => smtpRequestBodyBuilder($data->name, 'jlugo.engi@gmail.com',$subject, $message);
-        ]);
-
-      }
-    ],
       'item.update.organizations' => function (array $data) {
 
         //Access data using item service
