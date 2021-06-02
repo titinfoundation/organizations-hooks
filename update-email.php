@@ -1,9 +1,9 @@
 <?php
 
-  function updateEmail() {
-    
-    return "mere wowwwwwww";
-  }
+function updateEmail() {
+
+  return "mere wowwwwwww";
+}
 ?>
 
         
