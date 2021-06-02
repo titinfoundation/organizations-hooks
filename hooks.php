@@ -1,5 +1,4 @@
 <?php
-
 include './update-email.php';
 use Directus\Application\Application;
 
@@ -13,25 +12,7 @@ return [
       $params = ['fields'=>'*.*'];
       $item = $itemsService->find('organizations', 60, $params);
 
-      //Validation not to send email to client 
-      // if(!is_null($item)){
-      //   $item = $item->data;
-      // }else 
-      //   return;
-
       $body = updateEmail($item['data']);
-
-      // if($item->status == 'published'){
-      //   $body = publishedEmail($item);
-
-      // } else if($item->status == 'not_published'){
-      //   $body = updateEmail($item);
-
-      // } else if($item->status == 'denied'){
-      //   $body = deniedEmail($item);
-
-      // } else 
-      //   return;
 
       //Request to smtp.com api
       $client = new \GuzzleHttp\Client([

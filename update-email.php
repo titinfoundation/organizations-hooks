@@ -23,7 +23,7 @@
                 'address' => 'info@sinfinespr.org',
                 ),
             ),
-        'subject' => 'Su organización está bajo revisión pendiente de algunos documentos requeridos',
+        'subject' => 'Update Su organización está bajo revisión pendiente de algunos documentos requeridos',
         'body' =>
         array (
           'parts' =>
