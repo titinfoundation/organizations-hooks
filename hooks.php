@@ -12,8 +12,7 @@
         $params = ['fields'=>'*.*'];
         $item = $itemsService->find('organizations', 60, $params);
 
-        //$body = null;
-        $body = updateEmail($item['data']);
+        $body2 = updateEmail($item['data']);
 
         
 
@@ -22,7 +21,7 @@
           'base_uri' => 'https://api.smtp.com'
         ]);
         $response = $client->request('POST', 'v4/messages?api_key=fe1788dd32593bbc21fa941018856731f3b00f30', [
-          'json' => $body
+          'json' => $body2
         ]);
 
     }
