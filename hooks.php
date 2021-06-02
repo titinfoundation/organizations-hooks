@@ -10,13 +10,13 @@ use Directus\Application\Application;
         $container = Application::getInstance()->getContainer();
         $itemsService = new \Directus\Services\ItemsService($container);
         $params = ['fields'=>'*.*'];
-        $item = $itemsService->find('organizations', 60, $params);
+        $item = $itemsService->find('organizations', (int)$data->id, $params);
         $item = $item;
 
 
         //Email construction
         $subject = "not_published";
-        $message = json_encode($data);
+        $message = json_encode($item);
 
         if($item->status == 'published'){
           $subject = "published";
