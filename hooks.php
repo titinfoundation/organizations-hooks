@@ -1,5 +1,5 @@
 <?php
-  include './update-email.php';
+
   use Directus\Application\Application;
 
   return [
@@ -10,9 +10,9 @@
         $container = Application::getInstance()->getContainer();
         $itemsService = new \Directus\Services\ItemsService($container);
         $params = ['fields'=>'*.*'];
-        $item = $itemsService->find('organizations', 60, $params);
+        $item = $itemsService->find('organizations', $data->id, $params);
 
-        //$body = updateEmail($item);
+        
         $body = array (
           'channel' => 'info_sinfinespr_org',
           'recipients' =>
