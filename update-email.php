@@ -37,6 +37,5 @@
     );
     return $body;
   }
-?>
 
         
