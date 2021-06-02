@@ -17,12 +17,12 @@ return [
       $item = $itemsService->find('organizations', $data->id, $params);
 
       //Validation not to send email to client 
-      if(!is_null($item)){
-        $item = $item->data;
-      }else 
-        return;
+      // if(!is_null($item)){
+      //   $item = $item->data;
+      // }else 
+      //   return;
 
-        $body = publishedEmail($item);
+      $body = publishedEmail($item->data);
 
       // if($item->status == 'published'){
       //   $body = publishedEmail($item);
