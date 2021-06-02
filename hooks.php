@@ -11,7 +11,7 @@ use Directus\Application\Application;
         $itemsService = new \Directus\Services\ItemsService($container);
         $params = ['fields'=>'*.*'];
         $data = json_decode($data);
-        $item = $itemsService->find('organizations', $data->id, $params);
+        $item = $itemsService->find('organizations', (int)$data->id, $params);
         $item = $item->data;
 
 
