@@ -2,7 +2,7 @@
 
 
 use Directus\Application\Application;
-include "./OrganizationsEmails";
+require_once(__DIR__.'./OrganizationsEmails');
 
   return [
     'actions' => [
@@ -17,7 +17,7 @@ include "./OrganizationsEmails";
         $item = $item->data;
 
 
-        $oe = new OrganizationsEmails();
+        //$oe = new OrganizationsEmails();
         
         $name = "dddsd";
 
