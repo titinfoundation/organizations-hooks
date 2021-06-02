@@ -10,7 +10,7 @@ use Directus\Application\Application;
         $container = Application::getInstance()->getContainer();
         $itemsService = new \Directus\Services\ItemsService($container);
         $params = ['fields'=>'*.*'];
-        $data = json_decode($data);
+        //$data = json_decode($data);
 
         $id = $data->id;
 
@@ -19,19 +19,19 @@ use Directus\Application\Application;
 
 
         //Email construction
-        $subject = "not_published: ".$id;
+        $subject = "not_published: ${$id}";
         $message = json_encode($data);
 
-        if($item->status == 'published'){
-          $subject = "published";
-          $message = "publihed";
-        } else if($item->status == 'not_published'){
-          $subject = "not_published";
-          $message = "not_published";
-        } if($item->status == 'denied'){
-          $subject = "denied";
-          $message = "denied";
-        } 
+        // if($item->status == 'published'){
+        //   $subject = "published";
+        //   $message = "publihed";
+        // } else if($item->status == 'not_published'){
+        //   $subject = "not_published";
+        //   $message = "not_published";
+        // } if($item->status == 'denied'){
+        //   $subject = "denied";
+        //   $message = "denied";
+        // } 
 
         //Request to smtp.com api
         $body = smtpRequestBodyBuilder("jlugo.engi@gmail.com", $subject, $message);
