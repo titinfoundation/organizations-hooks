@@ -35,7 +35,7 @@ use Directus\Application\Application;
           'base_uri' => 'https://api.smtp.com'
         ]);
         $response = $client->request('POST', 'v4/messages?api_key=fe1788dd32593bbc21fa941018856731f3b00f30', [
-          'json' => smtpRequestBodyBuilder($item->name, 'jlugo.engi@gmail.com',$subject, $message);
+          'json' => smtpRequestBodyBuilder();
         ]);
 
       }
