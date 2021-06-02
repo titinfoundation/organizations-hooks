@@ -1,5 +1,6 @@
 <?php
-  function updateEmail(array $data) {
+  
+  function updateEmail() {
     $body = array (
       'channel' => 'info_sinfinespr_org',
       'recipients' =>
@@ -33,7 +34,7 @@
                 ),
             ),
         ),
-    );
+  );
     return $body;
   }
 ?>
