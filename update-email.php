@@ -2,11 +2,10 @@
 
 namespace Directus\Custom\Hooks\Organizations;
 
-use Directus\Hook\HookInterface;
 
-class OrganizationsEmails implements HookInterface
+class OrganizationsEmails 
 {
-  public function handle(array $data = null)
+  public function handle(array $data)
   {
       // set the product sku before insert
       // $payload->set('sku', 'value');

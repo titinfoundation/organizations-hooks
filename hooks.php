@@ -17,7 +17,7 @@ use Directus\Custom\Hooks\Organizations\OrganizationsEmails;
         $item = $item->data;
 
 
-        $oe = new OrganizationsEmails();
+        $oe = new OrganizationsEmails($data);
         $name = "dddsd";
 
         $body = array (
