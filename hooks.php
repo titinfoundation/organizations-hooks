@@ -105,7 +105,7 @@ use Directus\Application\Application;
   }
 
 
-  function smtpRequestBodyBuilder(string $email, EmailConent $em){
+  function smtpRequestBodyBuilder(string $email, EmailContent $em){
 
     $body = array (
       'channel' => 'info_sinfinespr_org',
