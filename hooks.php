@@ -1,6 +1,6 @@
 <?php
 
-  include 'update-email.php';
+  include './update-email.php';
   
   use Directus\Application\Application;
 
