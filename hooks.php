@@ -1,7 +1,8 @@
 <?php
 
-include "./OrganizationsEmails";
+
 use Directus\Application\Application;
+include "./OrganizationsEmails";
 
   return [
     'actions' => [
