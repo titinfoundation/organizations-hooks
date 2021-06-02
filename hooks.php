@@ -26,8 +26,9 @@ use Directus\Application\Application;
         } if($item["status"] == 'denied'){
           $subject = "denied";
           $message = "denied";
-        } else 
+        } else {
           return;
+        }
 
         //Request to smtp.com api
         $body = smtpRequestBodyBuilder("jlugo.engi@gmail.com", $subject, $message);
