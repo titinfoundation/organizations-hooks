@@ -31,7 +31,7 @@ use Directus\Application\Application;
         //   return;  
         
         //Request to smtp.com api
-        $body = smtpRequestBodyBuilder("Luguito","jlugo.engi@gmail.com","Subjetc preuba carajo");
+        $body = smtpRequestBodyBuilder($item->name,"jlugo.engi@gmail.com","Subjetc 3232 preuba carajo");
         $client = new \GuzzleHttp\Client([
           'base_uri' => 'https://api.smtp.com'
         ]);
