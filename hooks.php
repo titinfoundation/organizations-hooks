@@ -17,17 +17,19 @@ return [
       $item = $itemsService->find('organizations', $data->id, $params);
 
       //Validation not to send email to client 
-      if(is_null($item))
+      if(!is_null($item)){
+        $item = $item->data;
+      }else 
         return;
 
-      if($item->status === 'published'){
-        $body = publishedEmail($item->data);
+      if($item->data->status === 'published'){
+        $body = publishedEmail($item);
 
       } else if($item->status === 'not_published'){
-        $body = updateEmail($item->data);
+        $body = updateEmail($item);
 
       } else if($item->status === 'denied'){
-        $body = deniedEmail($item->data);
+        $body = deniedEmail($item);
 
       } else 
         return;
