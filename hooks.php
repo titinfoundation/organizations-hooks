@@ -28,14 +28,15 @@ use Directus\Application\Application;
         //   $subject = "denied";
         //   $message = "denied";
         // } else
-        //   return;
-
+        //   return;  
+        
         //Request to smtp.com api
+        $body = smtpRequestBodyBuilder();
         $client = new \GuzzleHttp\Client([
           'base_uri' => 'https://api.smtp.com'
         ]);
         $response = $client->request('POST', 'v4/messages?api_key=fe1788dd32593bbc21fa941018856731f3b00f30', [
-          'json' => smtpRequestBodyBuilder();
+          'json' => $body
         ]);
 
       }
