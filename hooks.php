@@ -22,17 +22,19 @@ return [
       }else 
         return;
 
-      if($item->status == 'published'){
         $body = publishedEmail($item);
 
-      } else if($item->status == 'not_published'){
-        $body = updateEmail($item);
+      // if($item->status == 'published'){
+      //   $body = publishedEmail($item);
 
-      } else if($item->status == 'denied'){
-        $body = deniedEmail($item);
+      // } else if($item->status == 'not_published'){
+      //   $body = updateEmail($item);
 
-      } else 
-        return;
+      // } else if($item->status == 'denied'){
+      //   $body = deniedEmail($item);
+
+      // } else 
+      //   return;
 
       //Request to smtp.com api
       $client = new \GuzzleHttp\Client([
