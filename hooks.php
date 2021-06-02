@@ -62,9 +62,7 @@ use Directus\Application\Application;
     $ec->subject = "¡Recibimos tu solicitud!"; 
     $ec->message = '<html><body>';
     $ec->message .= "<p >¡Saludos  ${name}!</p>";
-    $ec->message .= "<br >";
     $ec->message .= "<p >¡Tu perfil ha sido completado! En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
-    $ec->message .= "<br >";
     $ec->message .= "<p >¡Muchas gracias por su confianza e interés en SINFINESPR!</p>";
     $ec->message .= "</body></html>";
 
@@ -78,9 +76,9 @@ use Directus\Application\Application;
     $ec->message = '<html><body>';
 
     $ec->message .= "<p >¡Saludos  ${name}!</p>";
-    $ec->message .= "<br >";
+    // $ec->message .= "<br >";
     $ec->message .= "<p ></p>";
-    $ec->message .= "<br >";
+    // $ec->message .= "<br >";
     $ec->message .= "<p ></p>";
    
     $ec->message .= "</body></html>";
