@@ -1,5 +1,6 @@
 <?php
-include './update-email.php';
+
+//include './update-email.php';
 use Directus\Application\Application;
 
 return [
@@ -12,7 +13,42 @@ return [
       $params = ['fields'=>'*.*'];
       $item = $itemsService->find('organizations', 60, $params);
 
-      $body = updateEmail($item['data']);
+      //$body = updateEmail($item['data']);
+
+      $body = array (
+        'channel' => 'info_sinfinespr_org',
+        'recipients' =>
+          array (
+            'to' =>
+              array (
+                    0 =>
+                    array (
+                      'name' => 'Jorge Lugo',
+                      'address' => 'jlugo.engi@gmail.com',
+                    ),
+              ),
+          ),
+        'originator' =>
+          array (
+            'from' =>
+              array (
+                'name' =>'SinFines PR',
+                'address' => 'info@sinfinespr.org',
+                ),
+            ),
+        'subject' => 'Update Su organización está bajo revisión pendiente de algunos documentos requeridos',
+        'body' =>
+        array (
+          'parts' =>
+            array (
+                0 =>
+                array (
+                  'type' => 'text/html',
+                  'content' => "Saludos sub sup {$item['data']['name']} esto es una prueba. ",
+                  ),
+              ),
+          ),
+      );
 
       //Request to smtp.com api
       $client = new \GuzzleHttp\Client([
