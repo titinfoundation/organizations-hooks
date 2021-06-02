@@ -18,8 +18,8 @@ use Directus\Custom\Hooks\Organizations\OrganizationsEmails;
 
 
         $oe = new OrganizationsEmails();
-        $name = $oe;
-        
+        $name = "dddsd";
+
         $body = array (
           'channel' => 'info_sinfinespr_org',
           'recipients' =>
