@@ -13,25 +13,22 @@ use Directus\Application\Application;
         $item = $itemsService->find('organizations', $data->id, $params);
         $item = $item->data;
 
-        //Validations
-        if(is_null($item) || empty($item->email))
-          return;
 
         //Email construction
-        $subject = "";
-        $message = "";
+        $subject = "published";
+        $message = "publihed";
 
-        if($item->status == 'published'){
-          $subject = "published";
-          $message = "publihed";
-        } else if($item->status == 'not_published'){
-          $subject = "not_published";
-          $message = "not_published";
-        } if($item->status == 'denied'){
-          $subject = "denied";
-          $message = "denied";
-        } else
-          return;
+        // if($item->status == 'published'){
+        //   $subject = "published";
+        //   $message = "publihed";
+        // } else if($item->status == 'not_published'){
+        //   $subject = "not_published";
+        //   $message = "not_published";
+        // } if($item->status == 'denied'){
+        //   $subject = "denied";
+        //   $message = "denied";
+        // } else
+        //   return;
 
         //Request to smtp.com api
         $client = new \GuzzleHttp\Client([
