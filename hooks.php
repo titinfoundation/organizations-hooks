@@ -2,7 +2,7 @@
 
 use Directus\Application\Application;
 
-include("update-email.php");  
+include("./update-email.php");  
   
   
   return [
