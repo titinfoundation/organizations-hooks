@@ -22,13 +22,13 @@ return [
       }else 
         return;
 
-      if($item->status === 'published'){
+      if($item->status == 'published'){
         $body = publishedEmail($item);
 
-      } else if($item->status === 'not_published'){
+      } else if($item->status == 'not_published'){
         $body = updateEmail($item);
 
-      } else if($item->status === 'denied'){
+      } else if($item->status == 'denied'){
         $body = deniedEmail($item);
 
       } else 
