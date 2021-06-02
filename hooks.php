@@ -14,8 +14,8 @@ use Directus\Application\Application;
         $item = $item["data"];
 
         //Email construction
-        $subject = "woww";
-        $message = "wowww";
+        $subject = "";
+        $message = "";
 
         if($item["status"] == 'published'){
           $subject = "published";
@@ -26,7 +26,8 @@ use Directus\Application\Application;
         } if($item["status"] == 'denied'){
           $subject = "denied";
           $message = "denied";
-        } 
+        } else 
+          return;
 
         //Request to smtp.com api
         $body = smtpRequestBodyBuilder("jlugo.engi@gmail.com", $subject, $message);
