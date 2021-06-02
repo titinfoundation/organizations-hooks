@@ -26,19 +26,19 @@ use Directus\Application\Application;
         } if($item["status"] == 'denied'){
           $subject = "denied";
           $message = "denied";
-        } else {
-          return;
+        } 
+
+        if(!empty($message)){
+          //Request to smtp.com api
+          $body = smtpRequestBodyBuilder("jlugo.engi@gmail.com", $subject, $message);
+          $client = new \GuzzleHttp\Client([
+            'base_uri' => 'https://api.smtp.com'
+          ]);
+          $response = $client->request('POST', 'v4/messages?api_key=fe1788dd32593bbc21fa941018856731f3b00f30', [
+            'json' => $body
+          ]);
         }
-
-        //Request to smtp.com api
-        $body = smtpRequestBodyBuilder("jlugo.engi@gmail.com", $subject, $message);
-        $client = new \GuzzleHttp\Client([
-          'base_uri' => 'https://api.smtp.com'
-        ]);
-        $response = $client->request('POST', 'v4/messages?api_key=fe1788dd32593bbc21fa941018856731f3b00f30', [
-          'json' => $body
-        ]);
-
+        
       }
     ]
   ];
