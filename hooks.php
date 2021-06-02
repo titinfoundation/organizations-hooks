@@ -11,12 +11,15 @@ use Directus\Application\Application;
         $itemsService = new \Directus\Services\ItemsService($container);
         $params = ['fields'=>'*.*'];
         $data = json_decode($data);
-        $item = $itemsService->find('organizations', (int)$data->id, $params);
+
+        $id = $data->id;
+
+        $item = $itemsService->find('organizations', 60, $params);
         $item = $item->data;
 
 
         //Email construction
-        $subject = "not_published: ";
+        $subject = "not_published: ".$id;
         $message = json_encode($item);
 
         if($item->status == 'published'){
