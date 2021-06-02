@@ -12,17 +12,15 @@ use Directus\Application\Application;
         $params = ['fields'=>'*.*'];
         //$data = json_decode($data);
 
-        //{"phone":"(787) 294-18184","id":"60","modified_on":"2021-06-02 20:14:17"} 
-
         $id = $data["id"];
 
         $item = $itemsService->find('organizations', 60, $params);
-        //$item = ;
+        $item = $item->$data;
 
 
         //Email construction
-        $subject = "not_published: ${$id}";
-        $message = json_encode($data);
+        $subject = "not_published: ".strval( $id );
+        $message = json_encode($item);
 
         // if($item->status == 'published'){
         //   $subject = "published";
