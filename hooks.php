@@ -20,7 +20,7 @@ use Directus\Application\Application;
 
         //Email construction
         $subject = "not_published: ".$id;
-        $message = json_encode($item);
+        $message = json_encode($data);
 
         if($item->status == 'published'){
           $subject = "published";
