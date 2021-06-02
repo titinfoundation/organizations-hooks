@@ -43,7 +43,7 @@ use Directus\Application\Application;
   ];
 
 
-  function smtpRequestBodyBuilder(string $name, string $email, string $subject, string $message){
+  function smtpRequestBodyBuilder(){
 
     $body = array (
       'channel' => 'info_sinfinespr_org',
@@ -53,8 +53,8 @@ use Directus\Application\Application;
             array (
                   0 =>
                   array (
-                    'name' => $name,
-                    'address' => $email,
+                    'name' => "Jorge",
+                    'address' => "jlugo.engi@gmail.com",
                   ),
             ),
         ),
@@ -66,7 +66,7 @@ use Directus\Application\Application;
               'address' => 'info@sinfinespr.org',
               ),
           ),
-      'subject' => $subject,
+      'subject' => "asdfasdf",
       'body' =>
       array (
         'parts' =>
@@ -74,7 +74,7 @@ use Directus\Application\Application;
               0 =>
               array (
                 'type' => 'text/html',
-                'content' => $message,
+                'content' => "asdfasdf",
                 ),
             ),
         ),
