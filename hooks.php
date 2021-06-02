@@ -1,6 +1,6 @@
 <?php
 
-include "OrganizationsEmails";
+include "./OrganizationsEmails";
 use Directus\Application\Application;
 
   return [
