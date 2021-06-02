@@ -2,7 +2,7 @@
 
 
 use Directus\Application\Application;
-require_once(__DIR__.'./OrganizationsEmails');
+include "./OrganizationsEmails.php";
 
   return [
     'actions' => [
