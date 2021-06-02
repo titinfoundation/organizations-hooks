@@ -12,7 +12,9 @@ use Directus\Application\Application;
         $params = ['fields'=>'*.*'];
         //$data = json_decode($data);
 
-        $id = $data->id;
+        //{"phone":"(787) 294-18184","id":"60","modified_on":"2021-06-02 20:14:17"} 
+
+        $id = $data["id"];
 
         $item = $itemsService->find('organizations', 60, $params);
         //$item = ;
