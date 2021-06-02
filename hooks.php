@@ -1,8 +1,7 @@
 <?php
 
 include './update-email.php';
-include './published-email.php';
-include './denied-email.php';
+
 use Directus\Application\Application;
 
 
@@ -22,7 +21,7 @@ return [
       // }else 
       //   return;
 
-      $body = publishedEmail($item->data);
+      $body = updateEmail($item->data);
 
       // if($item->status == 'published'){
       //   $body = publishedEmail($item);
