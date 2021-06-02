@@ -76,7 +76,7 @@ use Directus\Application\Application;
     $ec->message = '<html><body>';
 
     $ec->message .= "<p >¡Saludos  ${name}!</p>";
-    // $ec->message .= "<br >";
+    $ec->message .= "<br >";
     $ec->message .= "<p ></p>";
     // $ec->message .= "<br >";
     $ec->message .= "<p ></p>";
