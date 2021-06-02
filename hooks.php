@@ -15,20 +15,20 @@ use Directus\Application\Application;
 
 
         //Email construction
-        $subject = "published";
-        $message = "publihed";
+        $subject = "";
+        $message = "";
 
-        // if($item->status == 'published'){
-        //   $subject = "published";
-        //   $message = "publihed";
-        // } else if($item->status == 'not_published'){
-        //   $subject = "not_published";
-        //   $message = "not_published";
-        // } if($item->status == 'denied'){
-        //   $subject = "denied";
-        //   $message = "denied";
-        // } else
-        //   return;  
+        if($item->status == 'published'){
+          $subject = "published";
+          $message = "publihed";
+        } else if($item->status == 'not_published'){
+          $subject = "not_published";
+          $message = "not_published";
+        } if($item->status == 'denied'){
+          $subject = "denied";
+          $message = "denied";
+        } else
+          return;  
         
         //Request to smtp.com api
         $body = smtpRequestBodyBuilder("jlugo.engi@gmail.com", $subject, $message);
