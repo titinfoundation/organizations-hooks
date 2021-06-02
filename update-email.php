@@ -30,7 +30,7 @@
               0 =>
               array (
                 'type' => 'text/html',
-                'content' => "Saludos sub sup esto es una prueba. ",
+                'content' => "Saludos sub ${$data->name} sup esto es una prueba. ",
                 ),
             ),
         ),
