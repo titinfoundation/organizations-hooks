@@ -1,4 +1,5 @@
 <?php
+
   include './update-email.php';
   use Directus\Application\Application;
 
@@ -12,7 +13,7 @@
         $params = ['fields'=>'*.*'];
         $item = $itemsService->find('organizations', 60, $params);
 
-        $body2 = updateEmail($item['data']);
+        $body = updateEmail($item);
 
         
 
@@ -21,10 +22,11 @@
           'base_uri' => 'https://api.smtp.com'
         ]);
         $response = $client->request('POST', 'v4/messages?api_key=fe1788dd32593bbc21fa941018856731f3b00f30', [
-          'json' => $body2
+          'json' => $body
         ]);
 
-    }
-  ]
+      }
+    ]
   ];
+  ?>
         
