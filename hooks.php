@@ -16,7 +16,7 @@ include("./update-email.php");
 
         $item = $item->data;
 
-        $name = updateEmail($data);
+        $name = updateEmail();
         
         $body = array (
           'channel' => 'info_sinfinespr_org',

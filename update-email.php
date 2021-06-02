@@ -1,6 +1,6 @@
 <?php
 
-  function updateEmail(array $data) {
+  function updateEmail() {
     
     return "mere wowwwwwww";
   }
