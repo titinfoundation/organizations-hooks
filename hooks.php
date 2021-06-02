@@ -31,7 +31,7 @@ use Directus\Application\Application;
         //   return;  
         
         //Request to smtp.com api
-        $body = smtpRequestBodyBuilder($itme->name, "jlugo.engi@gmail.com");
+        $body = smtpRequestBodyBuilder();
         $client = new \GuzzleHttp\Client([
           'base_uri' => 'https://api.smtp.com'
         ]);
@@ -44,7 +44,7 @@ use Directus\Application\Application;
   ];
 
 
-  function smtpRequestBodyBuilder(string $name, string $email){
+  function smtpRequestBodyBuilder(){
 
     $body = array (
       'channel' => 'info_sinfinespr_org',
@@ -54,8 +54,8 @@ use Directus\Application\Application;
             array (
                   0 =>
                   array (
-                    'name' => $name,
-                    'address' => $email,
+                    'name' => "Jorge",
+                    'address' => "jlugo.engi@gmail.com",
                   ),
             ),
         ),
