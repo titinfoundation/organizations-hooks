@@ -1,5 +1,6 @@
 <?php
 
+include "OrganizationsEmails";
 use Directus\Application\Application;
 
   return [
@@ -15,7 +16,7 @@ use Directus\Application\Application;
         $item = $item->data;
 
 
-        $oe = new \Directus\Custom\Hooks\Organizations\OrganizationsEmails();
+        $oe = new OrganizationsEmails();
         
         $name = "dddsd";
 
