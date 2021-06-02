@@ -10,11 +10,9 @@ use Directus\Application\Application;
         $container = Application::getInstance()->getContainer();
         $itemsService = new \Directus\Services\ItemsService($container);
         $params = ['fields'=>'*.*'];
-
         $data = json_decode($data);
-
         $item = $itemsService->find('organizations', $data->id, $params);
-        $item = $item;
+        $item = $item->data;
 
 
         //Email construction
