@@ -15,7 +15,7 @@ use Directus\Application\Application;
         $id = $data->id;
 
         $item = $itemsService->find('organizations', 60, $params);
-        $item = $item->data;
+        //$item = ;
 
 
         //Email construction
