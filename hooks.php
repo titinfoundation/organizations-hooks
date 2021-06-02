@@ -1,6 +1,6 @@
 <?php
 
-  include './update-email.php';
+  include 'update-email.php';
   use Directus\Application\Application;
 
   return [
@@ -14,8 +14,6 @@
         $item = $itemsService->find('organizations', 60, $params);
 
         $body = updateEmail($item);
-
-        
 
         //Request to smtp.com api
         $client = new \GuzzleHttp\Client([
