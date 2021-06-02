@@ -1,8 +1,8 @@
-<?php
-  //include "./update-email.php"
+<?php\
+
+  include "./update-email.php"
   use Directus\Application\Application;
   
-
   return [
     'actions' => [
       'item.update.organizations' => function (array $data) {
