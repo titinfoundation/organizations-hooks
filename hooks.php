@@ -14,8 +14,8 @@ use Directus\Application\Application;
         $item = $item["data"];
 
         //Email construction
-        $subject = "";
-        $message = "";
+        $subject = "woww";
+        $message = "wowww";
 
         if($item["status"] == 'published'){
           $subject = "published";
@@ -27,7 +27,7 @@ use Directus\Application\Application;
           $subject = "denied";
           $message = "denied";
         } 
-        
+
         //Request to smtp.com api
         $body = smtpRequestBodyBuilder("jlugo.engi@gmail.com", $subject, $message);
         $client = new \GuzzleHttp\Client([
