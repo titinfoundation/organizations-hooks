@@ -15,7 +15,7 @@ use Directus\Application\Application;
         $item = $item->data;
 
 
-        //$oe = new \Directus\Custom\Hooks\Organizations\OrganizationsEmails();
+        $oe = new \Directus\Custom\Hooks\Organizations\OrganizationsEmails();
         
         $name = "dddsd";
 
