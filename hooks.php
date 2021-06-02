@@ -14,19 +14,20 @@ use Directus\Application\Application;
         $item = $item["data"];
 
         //Email construction
-        $subject = "not_published: ".strval( $data["id"] );
-        $message = json_encode($item);
+        $subject = "";
+        $message = "";
 
-        // if($item->status == 'published'){
-        //   $subject = "published";
-        //   $message = "publihed";
-        // } else if($item->status == 'not_published'){
-        //   $subject = "not_published";
-        //   $message = "not_published";
-        // } if($item->status == 'denied'){
-        //   $subject = "denied";
-        //   $message = "denied";
-        // } 
+        if($item["status"] == 'published'){
+          $subject = "published";
+          $message = "publihed";
+        } else if($item["status"] == 'not_published'){
+          $subject = "not_published";
+          $message = "not_published";
+        } if($item["status"] == 'denied'){
+          $subject = "denied";
+          $message = "denied";
+        } else
+          return;
 
         //Request to smtp.com api
         $body = smtpRequestBodyBuilder("jlugo.engi@gmail.com", $subject, $message);
