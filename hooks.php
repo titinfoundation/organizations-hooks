@@ -3,7 +3,6 @@
 include './update-email.php';
 use Directus\Application\Application;
 
-
 return [
   'actions' => [
     'item.update.organizations' => function (array $data) {
@@ -20,7 +19,7 @@ return [
       // }else 
       //   return;
 
-      $body = updateEmail($item->data);
+      $body = updateEmail($item['data']);
 
       // if($item->status == 'published'){
       //   $body = publishedEmail($item);
