@@ -4,6 +4,22 @@ use Directus\Application\Application;
 
   return [
     'actions' => [
+      'item.create.organizations' => function (array $data) {
+
+        //Email construction
+        $subject = "";
+        $message = "";
+
+        //Request to smtp.com api
+        $client = new \GuzzleHttp\Client([
+          'base_uri' => 'https://api.smtp.com'
+        ]);
+        $response = $client->request('POST', 'v4/messages?api_key=fe1788dd32593bbc21fa941018856731f3b00f30', [
+          'json' => smtpRequestBodyBuilder($data->name, 'jlugo.engi@gmail.com',$subject, $message);
+        ]);
+
+      }
+    ],
       'item.update.organizations' => function (array $data) {
 
         //Access data using item service
@@ -11,18 +27,34 @@ use Directus\Application\Application;
         $itemsService = new \Directus\Services\ItemsService($container);
         $params = ['fields'=>'*.*'];
         $item = $itemsService->find('organizations', $data->id, $params);
-
         $item = $item->data;
 
-        
-        $body = emailBuilder();
+        //Validations
+        if(is_null($item) || empty($item->email))
+          return;
+
+        //Email construction
+        $subject = "";
+        $message = "";
+
+        if($item->status == 'published'){
+          $subject = "published";
+          $message = "publihed";
+        } else if($item->status == 'not_published'){
+          $subject = "not_published";
+          $message = "not_published";
+        } if($item->status == 'denied'){
+          $subject = "denied";
+          $message = "denied";
+        } else
+          return;
 
         //Request to smtp.com api
         $client = new \GuzzleHttp\Client([
           'base_uri' => 'https://api.smtp.com'
         ]);
         $response = $client->request('POST', 'v4/messages?api_key=fe1788dd32593bbc21fa941018856731f3b00f30', [
-          'json' => $body
+          'json' => smtpRequestBodyBuilder($item->name, 'jlugo.engi@gmail.com',$subject, $message);
         ]);
 
       }
@@ -30,7 +62,7 @@ use Directus\Application\Application;
   ];
 
 
-  function emailBuilder(){
+  function smtpRequestBodyBuilder(string $name, string $email, string $subject, string $message){
 
     $body = array (
       'channel' => 'info_sinfinespr_org',
@@ -40,8 +72,8 @@ use Directus\Application\Application;
             array (
                   0 =>
                   array (
-                    'name' => 'Jorge Lugo',
-                    'address' => 'jlugo.engi@gmail.com',
+                    'name' => $name,
+                    'address' => $email,
                   ),
             ),
         ),
@@ -53,7 +85,7 @@ use Directus\Application\Application;
               'address' => 'info@sinfinespr.org',
               ),
           ),
-      'subject' => 'Update function Su organización está bajo revisión pendiente de algunos documentos requeridos',
+      'subject' => $subject,
       'body' =>
       array (
         'parts' =>
@@ -61,7 +93,7 @@ use Directus\Application\Application;
               0 =>
               array (
                 'type' => 'text/html',
-                'content' => "Saludos sub sup esto es una prueba. ",
+                'content' => $message,
                 ),
             ),
         ),
