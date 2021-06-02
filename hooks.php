@@ -17,7 +17,7 @@ include("./update-email.php");
 
         $item = $item->data;
         
-        $body  = updateEmail($item);
+        $body  = updateEmail();
         
         
         //Request to smtp.com api

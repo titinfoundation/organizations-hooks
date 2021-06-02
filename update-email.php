@@ -1,6 +1,6 @@
 <?php
 
-  function updateEmail(array $data) {
+  function updateEmail() {
     $body = array (
       'channel' => 'info_sinfinespr_org',
       'recipients' =>
@@ -30,7 +30,7 @@
               0 =>
               array (
                 'type' => 'text/html',
-                'content' => "Saludos sub ${$data->name} sup esto es una prueba. ",
+                'content' => "Saludos sub sup esto es una prueba. ",
                 ),
             ),
         ),
