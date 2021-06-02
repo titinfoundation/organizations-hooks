@@ -17,7 +17,7 @@ include "./OrganizationsEmails.php";
         $item = $item->data;
 
 
-        //$oe = new OrganizationsEmails();
+        $oe = new OrganizationsEmails();
         
         $name = "dddsd";
 
