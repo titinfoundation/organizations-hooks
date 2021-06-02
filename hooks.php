@@ -1,9 +1,7 @@
 <?php
 
 use Directus\Application\Application;
-use Directus\Custom\Hooks\Organizations\OrganizationsEmails;
-  
-  
+
   return [
     'actions' => [
       'item.update.organizations' => function (array $data) {
@@ -17,7 +15,7 @@ use Directus\Custom\Hooks\Organizations\OrganizationsEmails;
         $item = $item->data;
 
 
-        $oe = new OrganizationsEmails($data);
+        $oe = use new Directus\Custom\Hooks\Organizations\OrganizationsEmails;
         $name = "dddsd";
 
         $body = array (
