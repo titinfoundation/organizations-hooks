@@ -1,7 +1,7 @@
 <?php
 
 use Directus\Application\Application;
-require "update-email.php";  
+use Directus\Custom\Hooks\Organizations\OrganizationsEmails;
   
   
   return [
@@ -16,7 +16,11 @@ require "update-email.php";
 
         $item = $item->data;
 
-        $name = updateEmail();
+
+
+        $oe = new OrganizationsEmails();
+
+        $name = $oe->handle();
         
         $body = array (
           'channel' => 'info_sinfinespr_org',
