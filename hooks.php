@@ -17,10 +17,8 @@ use Directus\Custom\Hooks\Organizations\OrganizationsEmails;
         $item = $item->data;
 
 
-
         $oe = new OrganizationsEmails();
-
-        $name = $oe->handle();
+        $name = $oe;
         
         $body = array (
           'channel' => 'info_sinfinespr_org',
