@@ -4,7 +4,7 @@ use Directus\Application\Application;
 
   return [
     'actions' => [
-      'item.create.test' => function (array $data) {
+      'item.create.organizations' => function (array $data) {
 
         $email = createdEmail($data);
         //Request to smtp.com api
@@ -16,7 +16,7 @@ use Directus\Application\Application;
           'json' => $body
         ]);
       },
-      'item.update.test' => function (array $data) {
+      'item.update.organizations' => function (array $data) {
 
         //Access data using item service
         $container = Application::getInstance()->getContainer();
