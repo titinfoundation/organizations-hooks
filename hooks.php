@@ -141,7 +141,7 @@ use Directus\Application\Application;
             array (
                   0 =>
                   array (
-                    'address' => $e->email,
+                    'address' => "jlugo.engi@gmail.com",
                   ),
             ),
         ),
