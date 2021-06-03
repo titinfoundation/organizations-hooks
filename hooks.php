@@ -20,7 +20,7 @@ use Directus\Application\Application;
         if($item["status"] == 'published'){
           $subject = "test";
         $message = "test";
-          $emailContent = publishedEmail($item["name"]);
+          $emailContent = publishedEmail($item["name"], $item["slug"]);
         } else if($item["status"] == 'not_published'){
           $subject = "not_published";
           $message = "not_published";
@@ -69,13 +69,13 @@ use Directus\Application\Application;
     return $ec;
   }
 
-  function publishedEmail (string $name) {
+  function publishedEmail (string $name, string $slug) {
     $ec = new EmailContent();
     $ec->subject = "¡Bienvenidos a SINFINESPR.ORG!"; 
     $ec->message = '<html><body>';
     $ec->message .= "<p >¡Saludos  ${name}!</p>";
     $ec->message .= "<p >Deseamos informarte que la organización ${name} ya es parte de la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
-    $ec->message .= "<a href='https://www.w3schools.com/'>Visit W3Schools.com!</a></p>";
+    $ec->message .= "<a href='https://sinfinespr.org/organizaciones/${slug}'>https://sinfinespr.org/organizaciones/${slug}</a></p>";
     $ec->message .= "<p >¡Muchas gracias por ser parte de SINFINESPR!</p>";
     $ec->message .= "</body></html>";
 
