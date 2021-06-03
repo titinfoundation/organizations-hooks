@@ -17,8 +17,8 @@ use Directus\Application\Application;
         $emailContent;
        
         if($item["status"] == 'published'){
-          $emailContent = publishedEmail($item);
-          //$emailContent = publishedUpdatedEmail($item);
+          //$emailContent = publishedEmail($item);
+          $emailContent = publishedUpdatedEmail($item);
         } else if($item["status"] == 'not_published'){
           $emailContent = updatedEmail($item);
         } if($item["status"] == 'denied'){
