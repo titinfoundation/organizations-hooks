@@ -8,7 +8,7 @@ use Directus\Application\Application;
 
         $emailContent = createdEmail($data);
         //Request to smtp.com api
-        $body = smtpRequestBodyBuilder("jlugo.engi@gmail.com", $emailContent);
+        $body = smtpRequestBodyBuilder($data["email"], $emailContent);
         $client = new \GuzzleHttp\Client([
           'base_uri' => 'https://api.smtp.com'
         ]);
@@ -39,7 +39,7 @@ use Directus\Application\Application;
 
         if(!is_null($emailContent)){
           //Request to smtp.com api
-          $body = smtpRequestBodyBuilder("jlugo.engi@gmail.com", $emailContent);
+          $body = smtpRequestBodyBuilder($item["email"], $emailContent);
           $client = new \GuzzleHttp\Client([
             'base_uri' => 'https://api.smtp.com'
           ]);
@@ -53,14 +53,12 @@ use Directus\Application\Application;
   ];
 
   class EmailContent {
-    public $recipient;
     public $subject;
     public $message;
   }
 
   function updatedEmail () {
     $ec = new EmailContent();
-    $ec->recipient = $item['email'];
     $ec->subject = "¡Recibimos tu actualización!"; 
     $ec->message = '<html><body>';
     $ec->message .= "<p>¡Saludos  {$item['name']}!</p>";
@@ -73,7 +71,6 @@ use Directus\Application\Application;
 
   function createdEmail (array $item) {
     $ec = new EmailContent();
-    $ec->recipient = $item['email'];
     $ec->subject = "¡Recibimos tu solicitud!"; 
     $ec->message = '<html><body>';
     $ec->message .= "<p>¡Saludos  {$item['name']}!</p>";
@@ -86,7 +83,6 @@ use Directus\Application\Application;
 
   function publishedEmail (array $item) {
     $ec = new EmailContent();
-    $ec->recipient = $item['email']; 
     $ec->subject = "¡Bienvenidos a SINFINESPR.ORG!"; 
     $ec->message = '<html><body>';
     $ec->message .= "<p>¡Saludos  {$item['name']}!</p>";
@@ -100,7 +96,6 @@ use Directus\Application\Application;
 
   function publishedUpdatedEmail (array $item) {
     $ec = new EmailContent();
-    $ec->recipient = $item['email']; 
     $ec->subject = "¡Tu actualización ha sido completada! "; 
     $ec->message = '<html><body>';
     $ec->message .= "<p>¡Saludos  {$item['name']}!</p>";
@@ -115,7 +110,6 @@ use Directus\Application\Application;
 
   function deniedEmail (array $item) {
     $ec = new EmailContent();
-    $ec->recipient = $item['email']; 
     $ec->subject = "Su organización está bajo revisión pendiente de algunos documentos requeridos."; 
     $ec->message = '<html><body>';
     $ec->message .= "<p>¡Saludos  {$item['name']}!</p>";
