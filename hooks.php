@@ -8,13 +8,16 @@ use Directus\Application\Application;
 
         $emailContent = createdEmail($data);
         //Request to smtp.com api
-        $body = smtpRequestBodyBuilder($data["email"], $emailContent);
-        $client = new \GuzzleHttp\Client([
-          'base_uri' => 'https://api.smtp.com'
-        ]);
-        $response = $client->request('POST', 'v4/messages?api_key=fe1788dd32593bbc21fa941018856731f3b00f30', [
-          'json' => $body
-        ]);
+
+        if(!empty($data["email"])){
+          $body = smtpRequestBodyBuilder($data["email"], $emailContent);
+          $client = new \GuzzleHttp\Client([
+            'base_uri' => 'https://api.smtp.com'
+          ]);
+          $response = $client->request('POST', 'v4/messages?api_key=fe1788dd32593bbc21fa941018856731f3b00f30', [
+            'json' => $body
+          ]);
+        }
       },
       'item.update.organizations' => function (array $data) {
 
@@ -37,7 +40,7 @@ use Directus\Application\Application;
           $emailContent = deniedEmail($item);
         } 
 
-        if(!is_null($emailContent)){
+        if(!is_null($emailContent) && !empty($item["email"])){
           //Request to smtp.com api
           $body = smtpRequestBodyBuilder($item["email"], $emailContent);
           $client = new \GuzzleHttp\Client([
