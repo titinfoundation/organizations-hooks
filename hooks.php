@@ -4,7 +4,7 @@ use Directus\Application\Application;
 
   return [
     'actions' => [
-      'item.create.organizations' => function (array $data) {
+      'item.create.test' => function (array $data) {
 
         $emailContent = createdEmail($data);
         //Request to smtp.com api
