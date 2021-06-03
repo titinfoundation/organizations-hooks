@@ -16,7 +16,7 @@ use Directus\Application\Application;
           'json' => $body
         ]);
       },
-      'item.update.organizations' => function (array $data) {
+      'item.update.test' => function (array $data) {
 
         //Access data using item service
         $container = Application::getInstance()->getContainer();
