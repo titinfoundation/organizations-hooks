@@ -75,7 +75,7 @@ use Directus\Application\Application;
     $ec->message = '<html><body>';
     $ec->message .= "<p >¡Saludos  {$item['name']}!</p>";
     $ec->message .= "<p >Deseamos informarte que la organización {$item['name']} ya es parte de la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
-    $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item->slug}'>https://2sinfinespr.org/organizaciones/{$item->slug}</a></p>";
+    $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
     $ec->message .= "<p >¡Muchas gracias por ser parte de SINFINESPR!</p>";
     $ec->message .= "</body></html>";
 
