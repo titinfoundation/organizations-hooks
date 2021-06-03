@@ -14,22 +14,18 @@ use Directus\Application\Application;
         $item = $item["data"];
 
         //Email construction
-        $subject = "";
-        $message = "";
-
+        $emailContent;
+       
         if($item["status"] == 'published'){
-          $subject = "test";
-        $message = "test";
           $emailContent = publishedEmail($item);
+          //$emailContent = publishedUpdatedEmail($item);
         } else if($item["status"] == 'not_published'){
-          $subject = "not_published";
-          $message = "not_published";
+          $emailContent = updatedEmail($item);
         } if($item["status"] == 'denied'){
-          $subject = "denied";
-          $message = "denied";
+          $emailContent = deniedEmail($item);
         } 
 
-        if(!empty($message)){
+        if(!is_null($emailContent)){
           //Request to smtp.com api
           $body = smtpRequestBodyBuilder("jlugo.engi@gmail.com", $emailContent);
           $client = new \GuzzleHttp\Client([
@@ -45,25 +41,32 @@ use Directus\Application\Application;
   ];
 
   class EmailContent {
+    public $recipient;
     public $subject;
     public $message;
   }
 
   function updatedEmail () {
     $ec = new EmailContent();
-    $ec->subject = ""; 
-    $ec->message = "";
+    $ec->recipient = $item['email'];
+    $ec->subject = "¡Recibimos tu actualización!"; 
+    $ec->message = '<html><body>';
+    $ec->message .= "<p>¡Saludos  {$item['name']}!</p>";
+    $ec->message .= "<p>En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
+    $ec->message .= "<p>¡Muchas gracias por ser parte de SINFINESPR!</p>";
+    $ec->message .= "</body></html>";
 
     return $ec;
   }
 
-  function createdEmail (string $name) {
+  function createdEmail (array $item) {
     $ec = new EmailContent();
+    $ec->recipient = $item['email'];
     $ec->subject = "¡Recibimos tu solicitud!"; 
     $ec->message = '<html><body>';
-    $ec->message .= "<p >¡Saludos  ${name}!</p>";
-    $ec->message .= "<p >¡Tu perfil ha sido completado! En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
-    $ec->message .= "<p >¡Muchas gracias por su confianza e interés en SINFINESPR!</p>";
+    $ec->message .= "<p>¡Saludos  {$item['name']}!</p>";
+    $ec->message .= "<p>¡Tu perfil ha sido completado! En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
+    $ec->message .= "<p>¡Muchas gracias por su confianza e interés en SINFINESPR!</p>";
     $ec->message .= "</body></html>";
 
     return $ec;
@@ -71,32 +74,52 @@ use Directus\Application\Application;
 
   function publishedEmail (array $item) {
     $ec = new EmailContent();
+    $ec->recipient = $item['email']; 
     $ec->subject = "¡Bienvenidos a SINFINESPR.ORG!"; 
     $ec->message = '<html><body>';
-    $ec->message .= "<p >¡Saludos  {$item['name']}!</p>";
-    $ec->message .= "<p >Deseamos informarte que la organización {$item['name']} ya es parte de la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
+    $ec->message .= "<p>¡Saludos  {$item['name']}!</p>";
+    $ec->message .= "<p>Deseamos informarte que la organización {$item['name']} ya es parte de la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
     $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
-    $ec->message .= "<p >¡Muchas gracias por ser parte de SINFINESPR!</p>";
+    $ec->message .= "<p>¡Muchas gracias por ser parte de SINFINESPR!</p>";
     $ec->message .= "</body></html>";
 
     return $ec;
   }
 
-  function publishedUpdatedEmail () {
+  function publishedUpdatedEmail (array $item) {
     $ec = new EmailContent();
-    $ec->subject = ""; 
-    $ec->message = "";
+    $ec->recipient = $item['email']; 
+    $ec->subject = "¡Tu actualización ha sido completada! "; 
+    $ec->message = '<html><body>';
+    $ec->message .= "<p>¡Saludos  {$item['name']}!</p>";
+    $ec->message .= "<p>Deseamos informarte que la información de tu organización ha sido actualizada en la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
+    $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
+    $ec->message .= "<p>¡Muchas gracias por ser parte de SINFINESPR!</p>";
+    $ec->message .= "</body></html>";
 
     return $ec;
   }
 
 
-  function deniedEmail () {
+  function deniedEmail (array $item) {
     $ec = new EmailContent();
-    $ec->subject = ""; 
-    $ec->message = "";
+    $ec->recipient = $item['email']; 
+    $ec->subject = "Su organización está bajo revisión pendiente de algunos documentos requeridos."; 
+    $ec->message = '<html><body>';
+    $ec->message .= "<p>¡Saludos  {$item['name']}!</p>";
+    $ec->message .= "<p>Muchas gracias por tu interés en SINFINESPR. Para poder completar el proceso de registro necesitamos que revises la documentación requerida. ";
+    $ec->message .= "El sistema nos indica que falta (n) un (os) documento (s). El motivo por este breve detente se debe a que: </p>";
+    
+    $ec->message .= "<p>{$item['reason']['description']}</p>";
 
-    return $ec;
+    $ec->message .= "<p>En caso que hayas cumplido con todos estos requisitos y por alguna razón no se ve reflejado en nuestro panel de administración no dudes en comunicarte con nosotros ";
+    $ec->message .= "para poder corregir la falta enseguida recibamos la evidencia. Puedes escribirnos a info@sinfinespr.org. </p>";
+
+    $ec->message .= "<p>Quedamos atentos.</p>";
+
+    $ec->message .= "<p>¡Muchas gracias por su confianza e interés en SINFINESPR!</p>";
+
+    $ec->message .= "</body></html>";
   }
 
 
