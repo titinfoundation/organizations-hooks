@@ -109,7 +109,7 @@ use Directus\Application\Application;
     $ec->message .= "<p>¡Saludos  {$item['name']}!</p>";
     $ec->message .= "<p>Muchas gracias por tu interés en SINFINESPR. Para poder completar el proceso de registro necesitamos que revises la documentación requerida. ";
     $ec->message .= "El sistema nos indica que falta (n) un (os) documento (s). El motivo por este breve detente se debe a que: </p>";
-    $ec->message .= "<p>{$item['name']['description']}</p>";
+    $ec->message .= "<p>{$item['reason']['description']}</p>";
     $ec->message .= "<p>En caso que hayas cumplido con todos estos requisitos y por alguna razón no se ve reflejado en nuestro panel de administración no dudes en comunicarte con nosotros ";
     $ec->message .= "para poder corregir la falta enseguida recibamos la evidencia. Puedes escribirnos a info@sinfinespr.org. </p>";
     $ec->message .= "<p>Quedamos atentos.</p>";
