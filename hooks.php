@@ -21,6 +21,11 @@ use Directus\Application\Application;
       },
       'item.update.organizations' => function (array $data) {
 
+        //validate status changed before continue
+        if(is_null($data["status"])){
+          return;
+        }
+
         //Access data using item service
         $container = Application::getInstance()->getContainer();
         $itemsService = new \Directus\Services\ItemsService($container);
