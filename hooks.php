@@ -107,7 +107,7 @@ use Directus\Application\Application;
     $ec->subject = "¡Tu actualización ha sido completada! "; 
     $ec->message = '<html><body>';
     $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
-    $ec->message .= "<p>Deseamos informarte que la información sobre la organización <b>{$item['name']}</b>&nbsp; ha sido actualizada en la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
+    $ec->message .= "<p>Deseamos informarte que la información sobre la organización <b>{$item['name']}</b> ha sido actualizada en la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
     $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
     $ec->message .= "<p>Saludos cordiales,</p>";
     $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
