@@ -11,17 +11,17 @@ use Directus\Application\Application;
         $active_total = 0;
         $item = [];
         
-        if(!$payload->has('other_assets') || !$payload->has('income_total')){
-           //Access data using item service
-          $container = Application::getInstance()->getContainer();
-          $itemsService = new \Directus\Services\ItemsService($container);
-          $params = ['fields'=>'*.*'];
-          $item = $itemsService->find('organizations', $payload["id"], $params);
-          $item = $item["data"];
-        }
+        // if(!$payload->has('other_assets') || !$payload->has('income_total')){
+        //    //Access data using item service
+        //   $container = Application::getInstance()->getContainer();
+        //   $itemsService = new \Directus\Services\ItemsService($container);
+        //   $params = ['fields'=>'*.*'];
+        //   $item = $itemsService->find('organizations', $payload["id"], $params);
+        //   $item = $item["data"];
+        // }
 
         if($payload->has('other_assets')){
-            $other_assets = $payload->get('other_assets');
+          $other_assets = $payload->get('other_assets');
         }else {
           $other_assets = $item["other_assets"];
         }
