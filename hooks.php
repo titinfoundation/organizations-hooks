@@ -20,17 +20,17 @@ use Directus\Application\Application;
         //   $item = $item["data"];
         // }
 
-        if($payload->has('other_assets')){
-          $other_assets = $payload->get('other_assets');
-        }else {
-          $other_assets = $item["other_assets"];
-        }
+        // if($payload->has('other_assets')){
+        //   $other_assets = $payload->get('other_assets');
+        // }else {
+        //   $other_assets = $item["other_assets"];
+        // }
 
-        if($payload->has('income_total')){
-          $income_total = $payload->get('income_total');
-        }else {
-          $income_total = $item["income_total"];
-        }
+        // if($payload->has('income_total')){
+        //   $income_total = $payload->get('income_total');
+        // }else {
+        //   $income_total = $item["income_total"];
+        // }
 
         $active_total = $other_assets + $income_total;
 
