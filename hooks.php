@@ -3,22 +3,22 @@
 use Directus\Application\Application;
 
   return [
-    'filters' => [
-      'item.update.organizations:before' => function (\Directus\Hook\Payload $payload) {
+    // 'filters' => [
+    //   'item.update.organizations:before' => function (\Directus\Hook\Payload $payload) {
 
-        $other_assets = $payload->get('other_assets');
-        $income_total = $payload->get('income_total');
-        $active_total = $other_assets + $income_total;
+    //     $other_assets = $payload->get('other_assets');
+    //     $income_total = $payload->get('income_total');
+    //     $active_total = $other_assets + $income_total;
 
-        if ($active_total) {
-          //$payload->set('active_total', $active_total);
-        }
+    //     if ($active_total) {
+    //       //$payload->set('active_total', $active_total);
+    //     }
 
-        $payload->set('active_total', 79);
+    //     $payload->set('active_total', 79);
   
-        return $payload;
-      }
-    ],
+    //     return $payload;
+    //   }
+    // ],
     'actions' => [
       'item.create.organizations' => function (array $data) {
 
