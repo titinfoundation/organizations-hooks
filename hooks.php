@@ -6,33 +6,33 @@ use Directus\Application\Application;
     'filters' => [
       'item.update.organizations:before' => function (\Directus\Hook\Payload $payload) {
 
+        $item = [];
         $other_assets = 0;
         $income_total = 0
-        //$item = [];
+
+
+        $other_assets = $payload->get('other_assets');
+        $income_total = $payload->get('income_total');
+
+
+
         
-        // if(!$payload->has('other_assets') || !$payload->has('income_total')){
-        //    //Access data using item service
-        //   $container = Application::getInstance()->getContainer();
-        //   $itemsService = new \Directus\Services\ItemsService($container);
-        //   $params = ['fields'=>'*.*'];
-        //   $item = $itemsService->find('organizations', $payload["id"], $params);
-        //   $item = $item["data"];
-        // }
+        // //Access data using item service
+        // $container = Application::getInstance()->getContainer();
+        // $itemsService = new \Directus\Services\ItemsService($container);
+        // $params = ['fields'=>'*.*'];
+        // $item = $itemsService->find('organizations', $payload["id"], $params);
+        // $item = $item["data"];
 
-        // if($payload->has('other_assets')){
-        //   $other_assets = $payload->get('other_assets');
-        // }else {
-        //   $other_assets = $item["other_assets"];
-        // }
 
-        // if($payload->has('income_total')){
-        //   $income_total = $payload->get('income_total');
-        // }else {
-        //   $income_total = $item["income_total"];
-        // }
+
 
         $active_total = $other_assets + $income_total;
-        $payload->set('active_total', $active_total);
+
+        if ($active_total) {
+          $payload->set('active_total', $active_total);
+        }
+  
         return $payload;
       }
     ],
