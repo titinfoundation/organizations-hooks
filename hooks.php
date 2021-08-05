@@ -9,7 +9,7 @@ use Directus\Application\Application;
   
         return $payload;
       }
-    ]
+    ],
     'actions' => [
       'item.create.organizations' => function (array $data) {
 
