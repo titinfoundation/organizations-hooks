@@ -3,39 +3,39 @@
 use Directus\Application\Application;
 
   return [
-    'filters' => [
-      'item.update.organizations:before' => function (\Directus\Hook\Payload $payload) {
+    // 'filters' => [
+    //   'item.update.organizations:before' => function (\Directus\Hook\Payload $payload) {
 
-        $item = [];
-        $other_assets = 0;
-        $income_total = 0
+    //     $item = [];
+    //     $other_assets = 0;
+    //     $income_total = 0
 
 
-        $other_assets = $payload->get('other_assets');
-        $income_total = $payload->get('income_total');
+    //     $other_assets = $payload->get('other_assets');
+    //     $income_total = $payload->get('income_total');
 
 
 
         
-        // //Access data using item service
-        // $container = Application::getInstance()->getContainer();
-        // $itemsService = new \Directus\Services\ItemsService($container);
-        // $params = ['fields'=>'*.*'];
-        // $item = $itemsService->find('organizations', $payload["id"], $params);
-        // $item = $item["data"];
+    //     // //Access data using item service
+    //     // $container = Application::getInstance()->getContainer();
+    //     // $itemsService = new \Directus\Services\ItemsService($container);
+    //     // $params = ['fields'=>'*.*'];
+    //     // $item = $itemsService->find('organizations', $payload["id"], $params);
+    //     // $item = $item["data"];
 
 
 
 
-        $active_total = $other_assets + $income_total;
+    //     $active_total = $other_assets + $income_total;
 
-        if ($active_total) {
-          $payload->set('active_total', $active_total);
-        }
+    //     if ($active_total) {
+    //       $payload->set('active_total', $active_total);
+    //     }
   
-        return $payload;
-      }
-    ],
+    //     return $payload;
+    //   }
+    // ],
     'actions' => [
       'item.create.organizations' => function (array $data) {
 
