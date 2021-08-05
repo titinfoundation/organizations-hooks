@@ -3,6 +3,13 @@
 use Directus\Application\Application;
 
   return [
+    'filters' => [
+      'item.update.organizations:before' => function (\Directus\Hook\Payload $payload) {
+        $payload->set('active_total', 69);
+  
+        return $payload;
+      }
+    ]
     'actions' => [
       'item.create.organizations' => function (array $data) {
 
