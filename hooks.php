@@ -8,8 +8,7 @@ use Directus\Application\Application;
 
         $other_assets = 0;
         $income_total = 0
-        $active_total = 0;
-        $item = [];
+        //$item = [];
         
         // if(!$payload->has('other_assets') || !$payload->has('income_total')){
         //    //Access data using item service
@@ -33,7 +32,7 @@ use Directus\Application\Application;
         // }
 
         $active_total = $other_assets + $income_total;
-
+        $payload->set('active_total', $active_total);
         return $payload;
       }
     ],
