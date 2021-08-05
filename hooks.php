@@ -4,7 +4,7 @@ use Directus\Application\Application;
 
   return [
     'filters' => [
-      'item.update.organizations:after' => function (\Directus\Hook\Payload $payload) {
+      'item.update.organizations:before' => function (\Directus\Hook\Payload $payload) {
 
         $other_assets = $payload->get('other_assets');
         $income_total = $payload->get('income_total');
