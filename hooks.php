@@ -5,7 +5,14 @@ use Directus\Application\Application;
   return [
     'filters' => [
       'item.update.organizations:before' => function (\Directus\Hook\Payload $payload) {
-        $payload->set('active_total', 69);
+
+        $other_assets = $payload->get('other_assets');
+        $income_total = $payload->get('income_total');
+        $active_total = $other_assets + $income_total;
+
+        if ($active_total) {
+          $payload->set('active_total', $active_total);
+        }
   
         return $payload;
       }
