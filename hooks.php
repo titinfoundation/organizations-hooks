@@ -10,12 +10,12 @@ use Directus\Application\Application;
         $income_total = $payload->get('income_total');
 
 
-        // //Access data using item service
-        // $container = Application::getInstance()->getContainer();
-        // $itemsService = new \Directus\Services\ItemsService($container);
-        // $params = ['fields'=>'*.*'];
-        // $item = $itemsService->find('organizations', $payload["id"], $params);
-        // $item = $item["data"];
+        //Access data using item service
+        $container = Application::getInstance()->getContainer();
+        $itemsService = new \Directus\Services\ItemsService($container);
+        $params = ['fields'=>'*.*'];
+        $item = $itemsService->find('organizations', $payload["id"], $params);
+        $item = $item["data"];
 
 
 
@@ -23,7 +23,7 @@ use Directus\Application\Application;
         $active_total = $other_assets + $income_total;
 
        
-        $payload->set('active_total', $active_total);
+        $payload->set('active_total', $item["other_assets"]);
         
         return $payload;
       }
