@@ -8,9 +8,8 @@ use Directus\Application\Application;
 
         $other_assets = $payload->get('other_assets');
         $income_total = $payload->get('income_total');
-        $active_total = 0;
 
-       if(is_null($other_assets) || is_null($income_total)){
+      // if(is_null($other_assets) || is_null($income_total)){
           //Access data using item service
           $container = Application::getInstance()->getContainer();
           $itemsService = new \Directus\Services\ItemsService($container);
@@ -18,14 +17,14 @@ use Directus\Application\Application;
           $item = $itemsService->find('organizations', $payload["id"], $params);
           $item = $item["data"];
 
-          if(is_null($other_assets)){
-            $other_assets = $item["other_assets"];
-          }
+        //   if(is_null($other_assets)){
+        //     $other_assets = $item["other_assets"];
+        //   }
 
-          if(is_null($income_total)){
-            $income_total =  $item["income_total"]
-          }
-        }
+        //   if(is_null($income_total)){
+        //     $income_total =  $item["income_total"]
+        //   }
+        // }
 
         $active_total = $other_assets + $income_total;
 
