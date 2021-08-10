@@ -24,11 +24,9 @@ use Directus\Application\Application;
           if(is_null($income_total)){
             $income_total = $item["income_total"];
           }
-          
         }
 
         $active_total = $other_assets + $income_total;
-
         $payload->set('active_total', $active_total);
         
         return $payload;
