@@ -17,9 +17,9 @@ use Directus\Application\Application;
           $item = $itemsService->find('organizations', $payload["id"], $params);
           $item = $item["data"];
 
-        //   if(is_null($other_assets)){
-        //     $other_assets = $item["other_assets"];
-        //   }
+          if(is_null($other_assets)){
+            $other_assets = $item["other_assets"];
+          }
 
         //   if(is_null($income_total)){
         //     $income_total =  $item["income_total"]
