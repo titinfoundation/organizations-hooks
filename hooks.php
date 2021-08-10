@@ -21,9 +21,10 @@ use Directus\Application\Application;
             $other_assets = $item["other_assets"];
           }
 
-          if(is_null($income_total)){
-            $income_total =  $item["income_total"]
-          }
+          // if(is_null($income_total)){
+          //   $income_total =  $item["income_total"]
+          // }
+          
        // }
 
         $active_total = $other_assets + $income_total;
