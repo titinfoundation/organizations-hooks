@@ -7,9 +7,10 @@ use Directus\Application\Application;
       'item.update.organizations:before' => function (\Directus\Hook\Payload $payload) {
 
         $other_assets = $payload->get('other_assets');
-        $income_total = $payload->get('income_total');
+        $property_and_equipment = $payload->get('property_and_equipment');
+        $current_assets = $payload->get('current_assets');
 
-       if(is_null($other_assets)||is_null($income_total)){
+       if(is_null($other_assets)||is_null($property_and_equipment)||is_null($current_assets)){
           //Access data using item service
           $container = Application::getInstance()->getContainer();
           $itemsService = new \Directus\Services\ItemsService($container);
@@ -21,12 +22,16 @@ use Directus\Application\Application;
             $other_assets = $item["other_assets"];
           }
 
-          if(is_null($income_total)){
-            $income_total = $item["income_total"];
+          if(is_null($property_and_equipment)){
+            $income_total = $item["property_and_equipment"];
+          }
+
+          if(is_null($current_assets)){
+            $income_total = $item["current_assets"];
           }
         }
 
-        $active_total = $other_assets + $income_total;
+        $active_total = $other_assets + $property_and_equipment + $current_assets;
         $payload->set('active_total', $active_total);
         
         return $payload;
