@@ -10,7 +10,7 @@ use Directus\Application\Application;
         $property_and_equipment = $payload->get('property_and_equipment');
         $current_assets = $payload->get('current_assets');
 
-       //if(is_null($other_assets)||is_null($property_and_equipment)||is_null($current_assets)){
+       if(is_null($other_assets)||is_null($property_and_equipment)||is_null($current_assets)){
           //Access data using item service
           $container = Application::getInstance()->getContainer();
           $itemsService = new \Directus\Services\ItemsService($container);
@@ -29,7 +29,7 @@ use Directus\Application\Application;
           if(is_null($current_assets)){
             $income_total = $item["current_assets"];
           }
-        //}
+        }
 
         $active_total = $other_assets + $property_and_equipment + $current_assets;
         $payload->set('active_total', $active_total);
