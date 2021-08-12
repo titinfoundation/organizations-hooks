@@ -23,11 +23,11 @@ use Directus\Application\Application;
           }
 
           if(is_null($property_and_equipment)){
-            $income_total = $item["property_and_equipment"];
+            $property_and_equipment = $item["property_and_equipment"];
           }
 
           if(is_null($current_assets)){
-            $income_total = $item["current_assets"];
+            $current_assets = $item["current_assets"];
           }
         }
 
