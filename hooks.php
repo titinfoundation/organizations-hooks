@@ -201,7 +201,7 @@ use Directus\Application\Application;
     if($item["locale"] !=='en'){
       $ec->subject = "¡Tu actualización ha sido completada! "; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Querido wwowww222: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>Deseamos informarte que la información sobre la organización <b>{$item['name']}</b> ha sido actualizada en la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
       $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
       $ec->message .= "<p>Saludos cordiales,</p>";
