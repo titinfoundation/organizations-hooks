@@ -205,7 +205,7 @@ use Directus\Application\Application;
       $ec->message .= "<p>Greetings: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>Thank you very much for your interest in SINFINESPR. To complete the registration process, we need you to review the required documentation. ";
       $ec->message .= "The system tells us that a document (s) is missing. </p>";
-      $ec->message .= "<p><b>{$item['reason']['translations'][0]->description}</b></p>";
+      $ec->message .= "<p><b>{$item['reason']['description']}</b></p>";
       $ec->message .= "<p>If you have met all the requirements, and for some reason, we don't see it in our administration panel, ";
       $ec->message .= "do not hesitate to contact us to correct the fault as soon as we receive the evidence. You can write to us at info@sinfinespr.org. </p>";
       $ec->message .= "<p>We stay in touch!</p>";
