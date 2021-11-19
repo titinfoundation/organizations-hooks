@@ -184,7 +184,7 @@ use Directus\Application\Application;
     if($item["locale"] !=='en'){
       $ec->subject = "¡Bienvenidos a SINFINESPR.ORG!"; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>mere wowww Querido: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Querido publishedEmail: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>Deseamos informarte que la organización <b>{$item['name']}</b> ya es parte de la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
       $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
       $ec->message .= "<p>¡Muchas gracias por ser parte de SINFINESPR!</p>";
@@ -195,7 +195,7 @@ use Directus\Application\Application;
     } else {
       $ec->subject = "Welcome to SINFINESPR.ORG!"; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Greetings: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Greetings publishedEmail: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>We wish to inform you that the organization <b>{$item['name']}</b> is already part of the SINFINESPR database. You can review your profile at the following link: ";
       $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
       $ec->message .= "<p>Thank you very much for being part of SINFINESPR!</p>";
@@ -215,7 +215,7 @@ use Directus\Application\Application;
     if($item["locale"] !=='en'){
       $ec->subject = "¡Tu actualización ha sido completada! "; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Querido publishedUpdatedEmail: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>Deseamos informarte que la información sobre la organización <b>{$item['name']}</b> ha sido actualizada en la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
       $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
       $ec->message .= "<p>Saludos cordiales,</p>";
@@ -225,7 +225,7 @@ use Directus\Application\Application;
     } else {
       $ec->subject = "Welcome to SINFINESPR.ORG!"; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Greetings: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Greetings publishedUpdatedEmail: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>We wish to inform you that the organization <b>{$item['name']}</b> is already part of the SINFINESPR database. You can review your profile at the following link: ";
       $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
       $ec->message .= "<p>Thank you very much for being part of SINFINESPR!</p>";
