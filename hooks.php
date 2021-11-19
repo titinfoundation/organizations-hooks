@@ -71,7 +71,6 @@ use Directus\Application\Application;
         $emailContent;
        
         if($item["status"] == 'published'){
-          //$emailContent = publishedEmail($item);
           $emailContent = publishedUpdatedEmail($item);
         } else if($item["status"] == 'not_published'){
           $emailContent = updatedEmail($item);
@@ -99,23 +98,14 @@ use Directus\Application\Application;
     public $message;
   }
 
-  //broken
   //status not published
   function updatedEmail (array $item) {
     $ec = new EmailContent();
-    // $ec->subject = "¡Recibimos tu actualización!"; 
-    // $ec->message = '<html><body>';
-    // $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
-    // $ec->message .= "<p>En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
-    // $ec->message .= "<p>¡Muchas gracias por ser parte de SINFINESPR!</p>";
-    // $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
-    // $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
-    // $ec->message .= "</body></html>";
 
     if($item["locale"] !=='en'){
       $ec->subject = "¡Recibimos tu actualización!"; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Querido updatedEmail:2 <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
       $ec->message .= "<p>¡Muchas gracias por ser parte de SINFINESPR!</p>";
       $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
@@ -124,8 +114,8 @@ use Directus\Application\Application;
     } else {
       $ec->subject = "We have received your request!"; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Greetings updatedEmail:2 <b>{$item['name']}</b></p>";
-      $ec->message .= "<p>Your profile is updated! In the next ten days, our work team will validate the information. You will receive a communication to the contact email when it is approved.</p>";
+      $ec->message .= "<p>Greetings: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>In the next ten days, our work team will validate the information. You will receive a communication to the contact email when it is approved.</p>";
       $ec->message .= "<p>Thank you very much for being part of SINFINESPR!</p>";
       $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
       $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
@@ -135,82 +125,33 @@ use Directus\Application\Application;
     return $ec;
   }
 
+  //on create
   function createdEmail (array $item) {
     $ec = new EmailContent();
-    // $ec->subject = "¡Recibimos tu solicitud!"; 
-    // $ec->message = '<html><body>';
-    // $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
-    // $ec->message .= "<p>¡Tu perfil ha sido completado! En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
-    // $ec->message .= "<p>¡Muchas gracias por su confianza e interés en SINFINESPR!</p>";
-    // $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
-    // $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
-    // $ec->message .= "</body></html>";
 
     if($item["locale"] !=='en'){
       $ec->subject = "¡Recibimos tu solicitud!"; 
-    $ec->message = '<html><body>';
-    $ec->message .= "<p>Querido: createdEmail <b>{$item['name']}</b></p>";
-    $ec->message .= "<p>¡Tu perfil ha sido completado! En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
-    $ec->message .= "<p>¡Muchas gracias por su confianza e interés en SINFINESPR!</p>";
-    $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
-    $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
-    $ec->message .= "</body></html>";
-  
+      $ec->message = '<html><body>';
+      $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>¡Tu perfil ha sido completado! En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
+      $ec->message .= "<p>¡Muchas gracias por su confianza e interés en SINFINESPR!</p>";
+      $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
+      $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
+      $ec->message .= "</body></html>";
     } else {
       $ec->subject = "We have received your request!"; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Greetings createdEmail: <b>{$item['name']}</b></p>";
-      $ec->message .= "<p>Your profile is updated! In the next ten days, our work team will validate the information. You will receive a communication to the contact email when it is approved.</p>";
+      $ec->message .= "<p>Greetings: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Your profile is completed! In the next ten days, our work team will validate the information. You will receive a communication to the contact email when it is approved.</p>";
       $ec->message .= "<p>Thank you very much for being part of SINFINESPR!</p>";
       $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
       $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
       $ec->message .= "</body></html>";
-  
     }
 
     return $ec;
   }
 
-  function publishedEmail (array $item) {
-    $ec = new EmailContent();
-    // $ec->subject = "¡Bienvenidos a SINFINESPR.ORG!"; 
-    // $ec->message = '<html><body>';
-    // $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
-    // $ec->message .= "<p>Deseamos informarte que la organización <b>{$item['name']}</b> ya es parte de la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
-    // $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
-    // $ec->message .= "<p>¡Muchas gracias por ser parte de SINFINESPR!</p>";
-    // $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
-    // $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
-    // $ec->message .= "</body></html>";
-
-    if($item["locale"] !=='en'){
-      $ec->subject = "¡Bienvenidos a SINFINESPR.ORG!"; 
-      $ec->message = '<html><body>';
-      $ec->message .= "<p>Querido publishedEmail: <b>{$item['name']}</b></p>";
-      $ec->message .= "<p>Deseamos informarte que la organización <b>{$item['name']}</b> ya es parte de la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
-      $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
-      $ec->message .= "<p>¡Muchas gracias por ser parte de SINFINESPR!</p>";
-      $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
-      $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
-      $ec->message .= "</body></html>";
-  
-    } else {
-      $ec->subject = "Welcome to SINFINESPR.ORG!"; 
-      $ec->message = '<html><body>';
-      $ec->message .= "<p>Greetings publishedEmail: <b>{$item['name']}</b></p>";
-      $ec->message .= "<p>We wish to inform you that the organization <b>{$item['name']}</b> is already part of the SINFINESPR database. You can review your profile at the following link: ";
-      $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
-      $ec->message .= "<p>Thank you very much for being part of SINFINESPR!</p>";
-      $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
-      $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
-      $ec->message .= "</body></html>";
-  
-    }
-
-    return $ec;
-  }
-
-  //working
   // status published
   function publishedUpdatedEmail (array $item) {
     $ec = new EmailContent();
@@ -218,7 +159,7 @@ use Directus\Application\Application;
     if($item["locale"] !=='en'){
       $ec->subject = "¡Tu actualización ha sido completada! "; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Querido publishedUpdatedEmail: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>Deseamos informarte que la información sobre la organización <b>{$item['name']}</b> ha sido actualizada en la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
       $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
       $ec->message .= "<p>Saludos cordiales,</p>";
@@ -228,7 +169,7 @@ use Directus\Application\Application;
     } else {
       $ec->subject = "Welcome to SINFINESPR.ORG!"; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Greetings publishedUpdatedEmail: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Greetings: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>We wish to inform you that the organization <b>{$item['name']}</b> is already part of the SINFINESPR database. You can review your profile at the following link: ";
       $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
       $ec->message .= "<p>Thank you very much for being part of SINFINESPR!</p>";
