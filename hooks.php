@@ -162,7 +162,7 @@ use Directus\Application\Application;
     if($item["locale"] !=='en'){
       $ec->subject = "¡Bienvenidos a SINFINESPR.ORG!"; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>mere wowww Querido: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>Deseamos informarte que la organización <b>{$item['name']}</b> is already part of the SINFINESPR database. You can review your profile at the following link: : ";
       $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
       $ec->message .= "<p>¡Muchas gracias por ser parte de SINFINESPR!</p>";
