@@ -110,7 +110,7 @@ use Directus\Application\Application;
     // $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
     // $ec->message .= "</body></html>";
 
-    if($item["locale"] !== 'en'){
+    if($item["locale"] !='en'){
       $ec->subject = "¡Recibimos tu actualización!"; 
       $ec->message = '<html><body>';
       $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
