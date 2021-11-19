@@ -113,7 +113,7 @@ use Directus\Application\Application;
     if($item["locale"] !=='en'){
       $ec->subject = "¡Recibimos tu actualización!"; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Querido updatedEmail: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
       $ec->message .= "<p>¡Muchas gracias por ser parte de SINFINESPR!</p>";
       $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
@@ -122,7 +122,7 @@ use Directus\Application\Application;
     } else {
       $ec->subject = "We have received your request!"; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Greetings : <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Greetings updatedEmail: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>Your profile is updated! In the next ten days, our work team will validate the information. You will receive a communication to the contact email when it is approved.</p>";
       $ec->message .= "<p>Thank you very much for being part of SINFINESPR!</p>";
       $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
@@ -147,7 +147,7 @@ use Directus\Application\Application;
     if($item["locale"] !=='en'){
       $ec->subject = "¡Recibimos tu solicitud!"; 
     $ec->message = '<html><body>';
-    $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
+    $ec->message .= "<p>Querido: createdEmail <b>{$item['name']}</b></p>";
     $ec->message .= "<p>¡Tu perfil ha sido completado! En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
     $ec->message .= "<p>¡Muchas gracias por su confianza e interés en SINFINESPR!</p>";
     $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
@@ -157,7 +157,7 @@ use Directus\Application\Application;
     } else {
       $ec->subject = "We have received your request!"; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Greetings wowww 2: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Greetings createdEmail: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>Your profile is updated! In the next ten days, our work team will validate the information. You will receive a communication to the contact email when it is approved.</p>";
       $ec->message .= "<p>Thank you very much for being part of SINFINESPR!</p>";
       $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
