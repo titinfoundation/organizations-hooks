@@ -186,22 +186,14 @@ use Directus\Application\Application;
     return $ec;
   }
 
+  // working
   function publishedUpdatedEmail (array $item) {
     $ec = new EmailContent();
-    // $ec->subject = "¡Tu actualización ha sido completada! "; 
-    // $ec->message = '<html><body>';
-    // $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
-    // $ec->message .= "<p>Deseamos informarte que la información sobre la organización <b>{$item['name']}</b> ha sido actualizada en la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
-    // $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
-    // $ec->message .= "<p>Saludos cordiales,</p>";
-    // $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
-    // $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
-    // $ec->message .= "</body></html>";
 
     if($item["locale"] !=='en'){
       $ec->subject = "¡Tu actualización ha sido completada! "; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Querido wwowww222: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>Deseamos informarte que la información sobre la organización <b>{$item['name']}</b> ha sido actualizada en la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
       $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
       $ec->message .= "<p>Saludos cordiales,</p>";
