@@ -163,7 +163,7 @@ use Directus\Application\Application;
       $ec->subject = "¡Bienvenidos a SINFINESPR.ORG!"; 
       $ec->message = '<html><body>';
       $ec->message .= "<p>mere wowww Querido: <b>{$item['name']}</b></p>";
-      $ec->message .= "<p>Deseamos informarte que la organización <b>{$item['name']}</b> is already part of the SINFINESPR database. You can review your profile at the following link: : ";
+      $ec->message .= "<p>Deseamos informarte que la organización <b>{$item['name']}</b> ya es parte de la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
       $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
       $ec->message .= "<p>¡Muchas gracias por ser parte de SINFINESPR!</p>";
       $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
@@ -174,7 +174,7 @@ use Directus\Application\Application;
       $ec->subject = "Welcome to SINFINESPR.ORG!"; 
       $ec->message = '<html><body>';
       $ec->message .= "<p>Greetings: <b>{$item['name']}</b></p>";
-      $ec->message .= "<p>We wish to inform you that the organization <b>{$item['name']}</b> ya es parte de la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
+      $ec->message .= "<p>We wish to inform you that the organization <b>{$item['name']}</b> is already part of the SINFINESPR database. You can review your profile at the following link: ";
       $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
       $ec->message .= "<p>Thank you very much for being part of SINFINESPR!</p>";
       $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
@@ -212,13 +212,12 @@ use Directus\Application\Application;
       $ec->subject = "Welcome to SINFINESPR.ORG!"; 
       $ec->message = '<html><body>';
       $ec->message .= "<p>Greetings: <b>{$item['name']}</b></p>";
-      $ec->message .= "<p>We wish to inform you that the organization <b>{$item['name']}</b> ya es parte de la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
+      $ec->message .= "<p>We wish to inform you that the organization <b>{$item['name']}</b> is already part of the SINFINESPR database. You can review your profile at the following link: ";
       $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
       $ec->message .= "<p>Thank you very much for being part of SINFINESPR!</p>";
       $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
       $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
       $ec->message .= "</body></html>";
-  
     }
 
     return $ec;
