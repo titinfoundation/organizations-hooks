@@ -99,6 +99,8 @@ use Directus\Application\Application;
     public $message;
   }
 
+  //broken
+  //status not published
   function updatedEmail () {
     $ec = new EmailContent();
     // $ec->subject = "¡Recibimos tu actualización!"; 
@@ -208,7 +210,8 @@ use Directus\Application\Application;
     return $ec;
   }
 
-  // working
+  //working
+  // status published
   function publishedUpdatedEmail (array $item) {
     $ec = new EmailContent();
 
