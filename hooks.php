@@ -135,7 +135,17 @@ use Directus\Application\Application;
 
   function createdEmail (array $item) {
     $ec = new EmailContent();
-    $ec->subject = "¡Recibimos tu solicitud!"; 
+    // $ec->subject = "¡Recibimos tu solicitud!"; 
+    // $ec->message = '<html><body>';
+    // $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
+    // $ec->message .= "<p>¡Tu perfil ha sido completado! En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
+    // $ec->message .= "<p>¡Muchas gracias por su confianza e interés en SINFINESPR!</p>";
+    // $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
+    // $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
+    // $ec->message .= "</body></html>";
+
+    if($item["locale"] !=='en'){
+      $ec->subject = "¡Recibimos tu solicitud!"; 
     $ec->message = '<html><body>';
     $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
     $ec->message .= "<p>¡Tu perfil ha sido completado! En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
@@ -143,6 +153,18 @@ use Directus\Application\Application;
     $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
     $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
     $ec->message .= "</body></html>";
+  
+    } else {
+      $ec->subject = "We have received your request!"; 
+      $ec->message = '<html><body>';
+      $ec->message .= "<p>Greetings wowww 2: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Your profile is updated! In the next ten days, our work team will validate the information. You will receive a communication to the contact email when it is approved.</p>";
+      $ec->message .= "<p>Thank you very much for being part of SINFINESPR!</p>";
+      $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
+      $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
+      $ec->message .= "</body></html>";
+  
+    }
 
     return $ec;
   }
