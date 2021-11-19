@@ -184,19 +184,36 @@ use Directus\Application\Application;
 
   function deniedEmail (array $item) {
     $ec = new EmailContent();
-    $ec->subject = "Su organización está bajo revisión pendiente de algunos documentos requeridos."; 
-    $ec->message = '<html><body>';
-    $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
-    $ec->message .= "<p>Muchas gracias por tu interés en SINFINESPR. Para poder completar el proceso de registro necesitamos que revises la documentación requerida. ";
-    $ec->message .= "El sistema nos indica que falta (n) un (os) documento (s). El motivo por este breve detente se debe a que: </p>";
-    $ec->message .= "<p><b>{$item['reason']['description']}</b></p>";
-    $ec->message .= "<p>En caso que hayas cumplido con todos estos requisitos y por alguna razón no se ve reflejado en nuestro panel de administración no dudes en comunicarte con nosotros ";
-    $ec->message .= "para poder corregir la falta enseguida recibamos la evidencia. Puedes escribirnos a info@sinfinespr.org. </p>";
-    $ec->message .= "<p>Quedamos atentos.</p>";
-    $ec->message .= "<p>¡Muchas gracias por su confianza e interés en SINFINESPR!</p>";
-    $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
-    $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
-    $ec->message .= "</body></html>";
+
+    if($item["locale"] !=='en'){
+      $ec->subject = "Su organización está bajo revisión pendiente de algunos documentos requeridos."; 
+      $ec->message = '<html><body>';
+      $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Muchas gracias por tu interés en SINFINESPR. Para poder completar el proceso de registro necesitamos que revises la documentación requerida. ";
+      $ec->message .= "El sistema nos indica que falta (n) un (os) documento (s). El motivo por este breve detente se debe a que: </p>";
+      $ec->message .= "<p><b>{$item['reason']['description']}</b></p>";
+      $ec->message .= "<p>En caso que hayas cumplido con todos estos requisitos y por alguna razón no se ve reflejado en nuestro panel de administración no dudes en comunicarte con nosotros ";
+      $ec->message .= "para poder corregir la falta enseguida recibamos la evidencia. Puedes escribirnos a info@sinfinespr.org. </p>";
+      $ec->message .= "<p>Quedamos atentos.</p>";
+      $ec->message .= "<p>¡Muchas gracias por su confianza e interés en SINFINESPR!</p>";
+      $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
+      $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
+      $ec->message .= "</body></html>";
+    } else {
+      $ec->subject = "Your organization is under review pending some required documents."; 
+      $ec->message = '<html><body>';
+      $ec->message .= "<p>Greetings: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Thank you very much for your interest in SINFINESPR. To complete the registration process, we need you to review the required documentation. ";
+      $ec->message .= "The system tells us that a document (s) is missing. </p>";
+      $ec->message .= "<p><b>{$item['reason']['description']}</b></p>";
+      $ec->message .= "<p>If you have met all the requirements, and for some reason, we don't see it in our administration panel, ";
+      $ec->message .= "do not hesitate to contact us to correct the fault as soon as we receive the evidence. You can write to us at info@sinfinespr.org. </p>";
+      $ec->message .= "<p>We stay in touch!</p>";
+      $ec->message .= "<p>Thank you very much for your trust and interest in SINFINESPR!</p>";
+      $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
+      $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
+      $ec->message .= "</body></html>";
+    }
 
     return $ec;
   }
