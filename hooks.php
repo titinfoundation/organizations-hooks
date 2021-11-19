@@ -101,7 +101,7 @@ use Directus\Application\Application;
 
   //broken
   //status not published
-  function updatedEmail () {
+  function updatedEmail (array $item) {
     $ec = new EmailContent();
     // $ec->subject = "¡Recibimos tu actualización!"; 
     // $ec->message = '<html><body>';
