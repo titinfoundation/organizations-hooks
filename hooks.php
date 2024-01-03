@@ -169,12 +169,14 @@ use Directus\Application\Application;
       $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
       $ec->message .= "</body></html>";
     } else {
-      $ec->subject = "Welcome to SINFINESPR.ORG!"; 
+      $ec->subject = "{$item['name']} Your profile has been validated and published!"; 
       $ec->message = '<html><body>';
       $ec->message .= "<p>Greetings: <b>{$item['name']}</b></p>";
-      $ec->message .= "<p>We wish to inform you that the organization <b>{$item['name']}</b> is already part of the SINFINESPR database. You can review your profile at the following link: ";
+      $ec->message .= "<p>We would like to inform you that the profile of the <b>{$item['name']}</b>, was successfully validated and published in SINFINESPR.org. Visit your profile: ";
       $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
-      $ec->message .= "<p>Thank you very much for being part of SINFINESPR!</p>";
+      $ec->message .= "<p><b><u>Remember that a validated profile does not mean that it is current</u>. Verify</b> that the documents presented are:  </p>";
+      $ec->message .= "<ul><li><b>Within the term of validity of the corresponding agency.</b></li><li><b>In accordance with the requirements of the type of fund to be requested</b> (state, federal and/or philanthropic)<b>.</b></li></ul>";
+      $ec->message .= "<p>Thank you for being part of SINFINESPR!</p>";
       $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
       $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
       $ec->message .= "</body></html>";
