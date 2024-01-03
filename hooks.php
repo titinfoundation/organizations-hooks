@@ -103,7 +103,7 @@ use Directus\Application\Application;
     $ec = new EmailContent();
 
     if($item["locale"] !=='en'){
-      $ec->subject = "¡Recibimos tu actualización!"; 
+      $ec->subject = "¡Recibimos tu actualización!!!"; 
       $ec->message = '<html><body>';
       $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
@@ -157,7 +157,7 @@ use Directus\Application\Application;
     $ec = new EmailContent();
 
     if($item["locale"] !=='en'){
-      $ec->subject = "¡Tu actualización ha sido completada! "; 
+      $ec->subject = "¡Tu actualización ha sido completada!!!"; 
       $ec->message = '<html><body>';
       $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
       $ec->message .= "<p>Deseamos informarte que la información sobre la organización <b>{$item['name']}</b> ha sido actualizada en la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
