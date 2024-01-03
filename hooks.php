@@ -103,20 +103,20 @@ use Directus\Application\Application;
     $ec = new EmailContent();
 
     if($item["locale"] !=='en'){
-      $ec->subject = "¡Recibimos tu actualización!!!"; 
+      $ec->subject = "{$item['name']} ¡Recibimos tu actualización!"; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
-      $ec->message .= "<p>En los próximos 10 días nuestro equipo de trabajo validará la información. Recibirás una comunicación al correo electrónico de contacto cuando sea aprobada.</p>";
+      $ec->message .= "<p>Saludos: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Dentro de los próximos 3 a 5 días laborables, el equipo evaluará la información editada en su perfil. Recibirá una notificación en cuanto sea validado y publicado.</p>";
       $ec->message .= "<p>¡Muchas gracias por ser parte de SINFINESPR!</p>";
       $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
       $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
       $ec->message .= "</body></html>";
     } else {
-      $ec->subject = "We have received your request!"; 
+      $ec->subject = "{$item['name']} We have received your request!"; 
       $ec->message = '<html><body>';
       $ec->message .= "<p>Greetings: <b>{$item['name']}</b></p>";
-      $ec->message .= "<p>In the next ten days, our work team will validate the information. You will receive a communication to the contact email when it is approved.</p>";
-      $ec->message .= "<p>Thank you very much for being part of SINFINESPR!</p>";
+      $ec->message .= "<p>During the next 3 to 5 workdays our team will evaluate the edited information on your profile. You will receive a notification when your profile is published and validated.</p>";
+      $ec->message .= "<p>Thank you for being part of SINFINESPR!</p>";
       $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
       $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
       $ec->message .= "</body></html>";
@@ -157,12 +157,14 @@ use Directus\Application\Application;
     $ec = new EmailContent();
 
     if($item["locale"] !=='en'){
-      $ec->subject = "¡Tu actualización ha sido completada!!!"; 
+      $ec->subject = "{$item['name']} ¡Tu perfil se validó y publicó!"; 
       $ec->message = '<html><body>';
-      $ec->message .= "<p>Querido: <b>{$item['name']}</b></p>";
-      $ec->message .= "<p>Deseamos informarte que la información sobre la organización <b>{$item['name']}</b> ha sido actualizada en la base de datos de SINFINESPR. Puede revisar su perfil en el siguiente enlace: ";
+      $ec->message .= "<p>Saludos: <b>{$item['name']}</b></p>";
+      $ec->message .= "<p>Le informamos que el perfil de la organización <b>{$item['name']}</b>, fue validado y publicado exitosamente en SINFINESPR.org. Visita tu perfil: ";
       $ec->message .= "<a href='https://sinfinespr.org/organizaciones/{$item['slug']}'>https://sinfinespr.org/organizaciones/{$item['slug']}</a></p>";
-      $ec->message .= "<p>Saludos cordiales,</p>";
+      $ec->message .= "<p><b><u>Recuerda que un perfil validado no significa que está vigente</u>. Corrobora</b> que los documentos presentados están: </p>";
+      $ec->message .= "<ul><li><b>Dentro del término de vigencia de la agencia correspondiente.</b></li><li><b>En acuerdo con los requisitos del tipo de fondo a solicitar</b> (estatal, federal y/o filantrópico)<b>.</b></li></ul>";
+      $ec->message .= "<p>¡Muchas gracias por ser parte de SINFINESPR!</p>";
       $ec->message .= "<p>Website: <a href='https://sinfinespr.org'>https://sinfinespr.org</a><br/>Email: info@sinfinespr.org</p>";
       $ec->message .= "<div><img alt='SinFinesPR Logo' src='https://api.sinfinespr.org/sin-fines-pr/assets/klpil65vblcs8oco' width='225' height='130' ></div>";
       $ec->message .= "</body></html>";
